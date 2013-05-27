@@ -1,0 +1,21 @@
+[submodule "lib/core"]
+	path = lib/core
+	url = https://github.com/kohana/core.git
+[submodule "lib/auth"]
+	path = lib/auth
+	url = https://github.com/kohana/auth.git
+[submodule "lib/database"]
+	path = lib/database
+	url = https://github.com/kohana/database.git
+[submodule "lib/asset-merger"]
+	path = lib/asset-merger
+	url = https://github.com/OpenBuildings/asset-merger.git
+[submodule "lib/minion"]
+	path = lib/minion
+	url = https://github.com/kohana/minion.git
+[submodule "lib/image"]
+	path = lib/image
+	url = https://github.com/kohana/image.git
+[submodule "lib/migrations"]
+	path = lib/migrations
+	url = https://github.com/kohana-minion/tasks-migrations.git
