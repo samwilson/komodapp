@@ -96,16 +96,24 @@ Kohana::$config->attach(new Config_File);
 Cookie::$salt = KOHANA_COOKIE_SALT;
 
 /**
- * Enable all modules.
+ * Enable all modules that are not listed in $disabled_modules.
  */
 $modules = array();
 foreach (scandir(MODPATH) as $mod)
 {
-	if ($mod=='core' OR substr($mod, 0, 1) == '.') continue;
+	// Ignore disabled modules
+	$disabled = (isset($disabled_modules) AND in_array($mod, $disabled_modules));
+	// Ignore core and any hidden directories and files
+	$nonmodule = ($mod == 'core' OR substr($mod, 0, 1) == '.' OR !is_dir(MODPATH.$mod));
+	if ($nonmodule OR $disabled)
+	{
+		continue;
+	}
+	// Otherwise, enable the module.
 	$modules[$mod] = MODPATH.$mod;
 }
 Kohana::modules($modules);
-unset($modules);
+unset($modules, $disabled_modules);
 
 if (PHP_SAPI == 'cli')
 {
