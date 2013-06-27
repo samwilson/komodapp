@@ -16,9 +16,6 @@
 [submodule "lib/image"]
 	path = lib/image
 	url = https://github.com/kohana/image.git
-[submodule "lib/migrations"]
-	path = lib/migrations
-	url = https://github.com/samwilson/tasks-migrations.git
 [submodule "lib/userguide"]
 	path = lib/userguide
 	url = https://github.com/kohana/userguide.git

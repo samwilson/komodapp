@@ -127,14 +127,8 @@ if (PHP_SAPI == 'cli')
 	/*
 	 * Otherwise, execute the main request.
 	 */
-	try {
-		echo Request::factory(TRUE, array(), FALSE)
-			->execute()
-			->send_headers(TRUE)
-			->body();
-	} catch (Exception $e)
-	{
-		echo $e->getMessage();
-		exit();
-	}
+	echo Request::factory(TRUE, array(), FALSE)
+		->execute()
+		->send_headers(TRUE)
+		->body();
 }
