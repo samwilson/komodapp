@@ -19,3 +19,6 @@
 [submodule "lib/userguide"]
 	path = lib/userguide
 	url = https://github.com/kohana/userguide.git
+[submodule "lib/orm"]
+	path = lib/orm
+	url = https://github.com/kohana/orm.git
