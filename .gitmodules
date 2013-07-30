@@ -9,7 +9,7 @@
 	url = https://github.com/kohana/database.git
 [submodule "lib/asset-merger"]
 	path = lib/asset-merger
-	url = https://github.com/OpenBuildings/asset-merger.git
+	url = https://github.com/samwilson/asset-merger.git
 [submodule "lib/minion"]
 	path = lib/minion
 	url = https://github.com/kohana/minion.git
