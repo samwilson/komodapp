@@ -22,3 +22,6 @@
 [submodule "lib/orm"]
 	path = lib/orm
 	url = https://github.com/kohana/orm.git
+[submodule "lib/unittest"]
+	path = lib/unittest
+	url = https://github.com/kohana/unittest.git
