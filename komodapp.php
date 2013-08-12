@@ -66,6 +66,21 @@ if (!file_exists($cache_dir))
 	chmod($cache_dir, 0755);
 }
 
+/**
+ * Shutdown for CLI, can be removed when http://dev.kohanaframework.org/issues/4537 is resolved.
+ */
+if (PHP_SAPI == 'cli')
+{
+	register_shutdown_function(function()
+	{
+		if (Kohana::$errors AND $error = error_get_last() AND in_array($error['type'], Kohana::$shutdown_errors))
+		{
+			exit(1);
+		}
+		
+	});
+}
+
 /*
  * Kohana initialisation.
  */
@@ -117,6 +132,22 @@ unset($modules, $disabled_modules);
 
 if (PHP_SAPI == 'cli')
 {
+	/**
+	 * Include the Unit Test module and leave the rest to PHPunit.
+	 */
+	if (class_exists('PHPUnit_Framework_Exception'))
+	{
+		// Disable output buffering
+		if (($ob_len = ob_get_length()) !== FALSE)
+		{
+			// flush_end on an empty buffer causes headers to be sent. Only flush if needed.
+			if ($ob_len > 0) ob_end_flush();
+			else ob_end_clean();
+		}
+		Kohana::modules(Kohana::modules() + array('unittest' => MODPATH.'unittest'));
+		return; // Execution will be continued by phpunit
+	}
+
 	/*
 	 * Execute minion if this is a command line request.
 	 */
