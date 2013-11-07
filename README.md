@@ -7,5 +7,6 @@ That's all.
 
 # Installation
 
+1. Run `composer install`
 1. Copy `index.dist.php` to `index.php` and edit the values therein.
 2. Copy `htaccess` to `.htaccess` (and uncomment and edit the `RewriteBase` directive if required).

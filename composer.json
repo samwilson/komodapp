@@ -1,0 +1,12 @@
+{
+	"name": "samwilson/komodapp",
+	"description": "A Kohana PHP skeleton application in which everything is a module.",
+	"type": "project",
+	"license": "GPL-3.0+",
+	"require": {
+		"kohana/core": "3.3.*",
+		"kohana/auth": "3.3.*",
+		"kohana/database": "3.3.*",
+		"kohana/minion": "3.3.*"
+	}
+}
