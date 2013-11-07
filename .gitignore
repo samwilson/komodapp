@@ -1,5 +1,7 @@
 /assets/
+/modules/
 /nbproject/private/
 /var/
+/vendor/
 .htaccess
 index.php

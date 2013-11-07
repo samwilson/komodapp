@@ -17,12 +17,12 @@ if ( ! defined('APPPATH'))
 if ( ! is_dir(APPPATH))
 {
 	// Create directory, after the precedent of Kohana_Core::init();
-	mkdir(APPPATH, 0755, TRUE);
+	mkdir(APPPATH, 0755, TRUE) OR die('Unable to make directory '.APPPATH);
 	chmod(APPPATH, 0755);
 }
 
-define('MODPATH', DOCROOT.'lib'.DIRECTORY_SEPARATOR);
-define('SYSPATH', DOCROOT.'lib'.DIRECTORY_SEPARATOR.'core'.DIRECTORY_SEPARATOR);
+define('MODPATH', DOCROOT.'modules'.DIRECTORY_SEPARATOR);
+define('SYSPATH', DOCROOT.'vendor'.DIRECTORY_SEPARATOR.'kohana'.DIRECTORY_SEPARATOR.'core'.DIRECTORY_SEPARATOR);
 if (!defined('KOHANA_BASE_URL')) define('KOHANA_BASE_URL', '/komodapp/');
 if (!defined('KOHANA_ENVIRONMENT')) define('KOHANA_ENVIRONMENT', 'production');
 if (substr(KOHANA_BASE_URL, -1) != '/') 
@@ -59,10 +59,10 @@ Kohana::$environment = constant('Kohana::'.strtoupper(KOHANA_ENVIRONMENT));
  * Try to create log directory.
  */
 $cache_dir = APPPATH.'cache';
-if (!file_exists($cache_dir))
+if ( ! file_exists($cache_dir))
 {
 	// Create directory, after the precedent of Kohana_Core::init();
-	mkdir($cache_dir, 0755, TRUE);
+	mkdir($cache_dir, 0755, TRUE) OR die('Unable to make directory '.$cache_dir);
 	chmod($cache_dir, 0755);
 }
 
