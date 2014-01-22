@@ -1,7 +1,7 @@
 <phpunit colors="true" bootstrap="index.php">
 	<testsuites>
 		<testsuite name="Tests">
-			<file>lib/unittest/tests.php</file>
+			<file>modules/unittest/tests.php</file>
 		</testsuite>
 	</testsuites>
 </phpunit>
