@@ -9,6 +9,8 @@
 		"kohana/database": "3.3.*",
 		"kohana/minion": "3.3.*",
 		"kohana/unittest": "3.3.*",
-		"kohana/cache": "3.3.*"
+		"kohana/cache": "3.3.*",
+		"vheissu/kohana-plugin-system": "~1",
+		"happyDemon/arr":"*"
 	}
 }

@@ -50,6 +50,7 @@ if (!defined('KOHANA_START_TIME')) define('KOHANA_START_TIME', microtime(TRUE));
 if (!defined('KOHANA_START_MEMORY')) define('KOHANA_START_MEMORY', memory_get_usage());
 require SYSPATH . 'classes/Kohana/Core'.EXT;
 require SYSPATH . 'classes/Kohana'.EXT;
+require DOCROOT . 'vendor/autoload.php';
 spl_autoload_register(array('Kohana', 'auto_load'));
 ini_set('unserialize_callback_func', 'spl_autoload_call');
 I18n::lang(KOHANA_LANG);
@@ -135,7 +136,7 @@ if (PHP_SAPI == 'cli')
 	/**
 	 * Include the Unit Test module and leave the rest to PHPunit.
 	 */
-	if (class_exists('PHPUnit_Framework_Exception'))
+	if (substr(basename($_SERVER['PHP_SELF']), 0, 7) == 'phpunit')
 	{
 		// Disable output buffering
 		if (($ob_len = ob_get_length()) !== FALSE)
